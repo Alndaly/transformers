@@ -118,6 +118,7 @@ class MgpstrModelTester:
 @require_torch
 class MgpstrModelTest(ModelTesterMixin, unittest.TestCase):
     all_model_classes = (MgpstrForSceneTextRecognition,) if is_torch_available() else ()
+    pipeline_model_mapping = {"feature-extraction": MgpstrForSceneTextRecognition} if is_torch_available() else {}
     fx_compatible = False
 
     test_pruning = False

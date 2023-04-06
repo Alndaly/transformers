@@ -422,6 +422,7 @@ class AlignModelTester:
 @require_torch
 class AlignModelTest(ModelTesterMixin, unittest.TestCase):
     all_model_classes = (AlignModel,) if is_torch_available() else ()
+    pipeline_model_mapping = {"feature-extraction": AlignModel} if is_torch_available() else {}
     fx_compatible = False
     test_head_masking = False
     test_pruning = False

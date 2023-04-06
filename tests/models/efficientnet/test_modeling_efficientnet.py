@@ -129,6 +129,11 @@ class EfficientNetModelTest(ModelTesterMixin, unittest.TestCase):
     """
 
     all_model_classes = (EfficientNetModel, EfficientNetForImageClassification) if is_torch_available() else ()
+    pipeline_model_mapping = (
+        {"feature-extraction": EfficientNetModel, "image-classification": EfficientNetForImageClassification}
+        if is_torch_available()
+        else {}
+    )
 
     fx_compatible = False
     test_pruning = False

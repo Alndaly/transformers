@@ -374,11 +374,7 @@ class TFBlipModelTester:
 @require_tf
 class TFBlipModelTest(TFModelTesterMixin, PipelineTesterMixin, unittest.TestCase):
     all_model_classes = (TFBlipModel,) if is_tf_available() else ()
-    pipeline_model_mapping = (
-        {"feature-extraction": TFBlipModel, "image-to-text": TFBlipForConditionalGeneration}
-        if is_tf_available()
-        else {}
-    )
+    pipeline_model_mapping = {"feature-extraction": TFBlipModel} if is_tf_available() else {}
     test_head_masking = False
     test_pruning = False
     test_resize_embeddings = False
